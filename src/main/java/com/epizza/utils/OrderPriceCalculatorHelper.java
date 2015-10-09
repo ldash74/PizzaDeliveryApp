@@ -58,7 +58,7 @@ public class OrderPriceCalculatorHelper {
 
         BigDecimal totalPrice = BigDecimal.ZERO;
 
-        //Start calculating prices and generate receipt.
+        //Calculating prices and generate receipt.
         for (Pizza thisPizza: inputOrderVO.getOrderedPizzaList()) {
 
             BigDecimal pizzaPrice = BigDecimal.ZERO;
@@ -131,7 +131,7 @@ public class OrderPriceCalculatorHelper {
             totalPrice = totalPrice.add(pizzaPrice);
         }
 
-        //If email id is provided, add discount if the customer if first time.
+        //If email id is provided, add discount if the customer is first time.
         if (StringUtils.isNotEmpty(inputOrderVO.getCustomerEmail()) && ifFirstTimeCustomer(inputOrderVO.getCustomerEmail())) {
             BigDecimal newCustomerDiscountAmount = totalPrice.multiply(NEW_CUSTOMER_DISCOUNT_FACTOR, new MathContext(3, RoundingMode.HALF_UP)).negate();
             //Add item in receipt
@@ -195,10 +195,10 @@ public class OrderPriceCalculatorHelper {
     }
 
     private void updateCustomerListFile(List<String>  customerEmailList) {
-        Writer writer = null;
+        BufferedWriter writer = null;
 
         try {
-            writer = new FileWriter(customerEmailFilePath);
+            writer = new BufferedWriter(new FileWriter(customerEmailFilePath));
             StringBuilder aStringBuilder = new StringBuilder();
 
             int loopCount = 1;

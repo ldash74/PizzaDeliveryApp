@@ -3,12 +3,12 @@ package com.epizza.types;
 
 public enum PizzaToppingType {
 
-    CAPSICUM("Capsicum"),
-    ONION("Onion"),
-    TOMATO("Tomato"),
-    PINEAPPLE("Pineapple"),
-    OLIVE("Olive"),
-    JALAPENO("Jalapeno");
+    CAPSICUM("CAPSICUM"),
+    ONION("ONION"),
+    TOMATO("TOMATO"),
+    PINEAPPLE("PINEAPPLE"),
+    OLIVE("OLIVE"),
+    JALAPENO("JALAPENO");
 
     private String text;
 

@@ -5,9 +5,9 @@ import com.epizza.domain.ReceiptVO;
 import com.epizza.exceptions.FileIOException;
 import com.epizza.types.ReceiptWriterType;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.Map;
 
 public class TextFileReceiptWriter implements IReceiptWriter {
@@ -19,14 +19,14 @@ public class TextFileReceiptWriter implements IReceiptWriter {
     }
 
     public void writeReceipt(ReceiptVO receiptVO) {
-        Writer writer = null;
+        BufferedWriter writer = null;
 
         try {
-            writer = new FileWriter(receiptFileName);
+            writer = new BufferedWriter(new FileWriter(receiptFileName));
 
             for (Map.Entry receiptEntry: receiptVO.getReceiptItems().entrySet()) {
                 writer.write(receiptEntry.getKey() + "-----: " + receiptEntry.getValue());
-                writer.write(System.getProperty("line.separator"));
+                writer.newLine();
             }
 
         } catch (IOException e) {

@@ -48,6 +48,22 @@ public class Pizza {
         return toppings;
     }
 
+    private String getFormattedToppingString() {
+        StringBuilder aStringBuilder = new StringBuilder();
+
+        int loopCount = 0;
+
+        for (PizzaToppingType aTopping: toppings) {
+            aStringBuilder.append(aTopping.getText());
+            loopCount++;
+            if (loopCount != toppings.size()) {
+                aStringBuilder.append(",");
+            }
+        }
+
+        return aStringBuilder.toString();
+    }
+
     public boolean isDoubleCheese() {
         return doubleCheese;
     }
@@ -100,7 +116,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return getSize().toString() + "|" + getBase().toString() + "|" +  getSauce().toString() + "|" + getToppings().toString() + "|" + getCheese().toString() + (doubleCheese ? ", DOUBLE" : "");
+        return getSize().toString() + "|" + getBase().toString() + "|" +  getSauce().toString() + "|" + getFormattedToppingString() + "|" + getCheese().toString() + (doubleCheese ? ", DOUBLE" : "");
 
     }
 }

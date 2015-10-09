@@ -61,9 +61,9 @@ public class StartEPizzaApplication {
 
         //Create list of writers.
         List<IReceiptWriter> writers = new ArrayList<IReceiptWriter>();
-        writers.add(new ConsoleReceiptWriter());
-
         TextFileReceiptWriter textFileReceiptWriter = new TextFileReceiptWriter(receiptFileName);
+
+        writers.add(new ConsoleReceiptWriter());
         writers.add(textFileReceiptWriter);
 
         //Initialise Service
