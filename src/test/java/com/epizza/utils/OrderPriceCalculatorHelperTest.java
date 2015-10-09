@@ -13,8 +13,8 @@ public class OrderPriceCalculatorHelperTest {
 
     @Test
     public void caculateOrderPriceFirstTimeCustomerSuccessTest() {
-        String customerEmailFilePath = "/Users/debjanidas/resources/CustomerEmails.csv";
-        String orderFilePath = "/Users/debjanidas/resources/CustomerOrder_1.txt";
+        String customerEmailFilePath = "/resources/CustomerEmails.csv";
+        String orderFilePath = "/resources/CustomerOrder_1.txt";
 
         InputOrderFromTxtFile inputOrderFromTxtFile = new InputOrderFromTxtFile(orderFilePath);
         InputOrderVO inputOrderVO = inputOrderFromTxtFile.takeOrder();
@@ -62,7 +62,7 @@ public class OrderPriceCalculatorHelperTest {
     @Test
     public void caculateOrderPriceExistingCustomerSuccessTest() {
         String customerEmailFilePath = "/resources/CustomerEmails.csv";
-        String orderFilePath = "/Users/debjanidas/resources/CustomerOrder_3.txt";
+        String orderFilePath = "/resources/CustomerOrder_3.txt";
 
         InputOrderFromTxtFile inputOrderFromTxtFile = new InputOrderFromTxtFile(orderFilePath);
         InputOrderVO inputOrderVO = inputOrderFromTxtFile.takeOrder();
